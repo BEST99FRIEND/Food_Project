@@ -23,9 +23,13 @@
           <div class="col-sm-6 col-lg-4 all {{ product.category.slug }}">
             <div class="box">
               <div>
+                <a href="{% url 'product_detail' product.pk %}">
                 <div class="img-box">
+                  {% if product.image %}
                   <img src="{{ product.image.url }}" alt="">
+                  {% endif %}
                 </div>
+                </a>
                 <div class="detail-box">
                   <h5>
                     {{ product.name }}

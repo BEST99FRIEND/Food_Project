@@ -7,12 +7,13 @@
 
 {% block main %}
 
-    <h2>Add New Product</h2>
-    <form method="post" class ="mt-5 mb-5">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Add Product</button>
-    </form>
+<div class ="container">
+<form method="post" class ="mt-5 mb-5">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Add Product</button>
+</form>
+</div>
     
 {% endblock main %}
 
