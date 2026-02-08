@@ -63,4 +63,4 @@ def product_delete(request: WSGIRequest, pk: int):
     context = {
         "product": product
     }
-    return render(request, template_name='main/product_delete.html', context=context)
+    return render(request, template_name='main/confirm_delete.html', context=context)

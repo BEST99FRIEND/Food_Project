@@ -8,6 +8,7 @@ settings.DEBUG = True  # Ensure DEBUG is set to True for development
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
+    path('user/', include('user.urls')),
 ]
 
 if settings.DEBUG:
