@@ -2,7 +2,7 @@
 <html lang="uz">
 <head>
     <meta charset="UTF-8">
-    <title>Ro'yxatdan o'tish</title>
+    <title>Login</title>
 
     <style>
         body {
@@ -10,11 +10,11 @@
             background-color: #f2f2f2;
         }
 
-        .form-container {
+        .login-container {
             width: 350px;
-            margin: 80px auto;
+            margin: 100px auto;
             padding: 20px;
-            background-color: #ffffff;
+            background-color: #fff;
             border-radius: 6px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
@@ -25,7 +25,7 @@
 
         label {
             display: block;
-            margin-top: 10px;
+            margin-top: 12px;
         }
 
         input {
@@ -38,41 +38,52 @@
             width: 100%;
             padding: 10px;
             margin-top: 15px;
-            background-color: #4CAF50;
+            background-color: #2196F3;
             color: white;
             border: none;
             cursor: pointer;
         }
 
         button:hover {
-            background-color: #45a049;
+            background-color: #1976D2;
+        }
+
+        .extra {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .extra a {
+            text-decoration: none;
+            color: #2196F3;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="form-container">
-        <h2>Ro'yxatdan o'tish</h2>
+    <div class="login-container">
+        <h2>Kirish</h2>
 
         <form action="#" method="post"> {% csrf_token %}
             {{ form.as_p }}
 
-            {% comment %} <label for="username">Username</label>
+            {% comment %} <label for="username">Username yoki Email</label>
             <input type="text" id="username" name="username" required>
 
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
+            <label for="password">Parol</label>
+            <input type="password" id="password" name="password" required>
 
-            <label for="password1">Parol</label>
-            <input type="password" id="password1" name="password1" required>
-
-            <label for="password2">Parolni tasdiqlash</label>
-            <input type="password" id="password2" name="password2" required>
-
-            <button type="submit">Ro'yxatdan o'tish</button> {% endcomment %}
+            <button type="submit">Login</button> {% endcomment %}
 
         </form>
+
+        <div class="extra">
+            Akkauntingiz yo‘qmi? 
+            <a href="{% url 'register' %}">Ro‘yxatdan o‘tish</a>
+        </div>
+
     </div>
 
 </body>
