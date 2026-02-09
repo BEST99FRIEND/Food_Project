@@ -139,7 +139,7 @@
         </nav>
 
         <div class="logout">
-            <a href="#">🚪 Logout</a>
+            <a href="{% url 'logout' %}">🚪 Logout</a>
         </div>
     </aside>
 
@@ -149,9 +149,9 @@
         <!-- Profile Info -->
         <div class="section profile-info">
             <h3>Shaxsiy ma'lumotlar</h3>
-            <p><strong>Ism:</strong> Qobiljon</p>
-            <p><strong>Email:</strong> qobiljon@mail.com</p>
-            <p><strong>Telefon:</strong> +998 90 123 45 67</p>
+            <p><strong>Ism:</strong> {{ user.first_name }} {{ user.last_name }}</p>
+            <p><strong>Email:</strong> {{ user.email }}</p>
+            <p><strong>Username:</strong> {{ user.username }}</p>
         </div>
 
         <!-- Orders -->
@@ -192,47 +192,7 @@
 </div>
 
 
-
-
-
-
-        {% comment %} /* ===== Content ===== */
-        .content {
-            flex: 1;
-            padding: 40px;
-        }
-
-        .content h1 {
-            margin-bottom: 20px;
-        }
-    </style>
-</head>
-
-<body>
-
-    <div class="container">
-
-        <div class="sidebar">
-            <h2>Burger Shop</h2>
-
-            <div class="menu">
-                <a href="#">Dashboard</a>
-                <a href="#">Buyurtmalarim</a>
-                <a href="#">Profil sozlamalari</a>
-                <a href="#">To‘lovlar</a>
-            </div>
-
-            <div class="logout">
-                <a href="#">Logout</a>
-            </div>
-        </div>
-
-        <div class="content">
-            <h1>User Profile</h1>
-            <p>Xush kelibsiz! Bu sizning shaxsiy profilingiz sahifasi.</p>
-        </div>
-
-    </div>
-
 </body>
-</html> {% endcomment %}
+</html>
+
+

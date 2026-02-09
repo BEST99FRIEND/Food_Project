@@ -37,10 +37,10 @@ def logout_view(request: WSGIRequest):
     print('Siz tizimdan chiqdingiz')
     return redirect('login')
 
-def user_profile(request: WSGIRequest, user_id: int):
-    # user = get_object_or_404(User, id=user_id)
+def user_profile(request: WSGIRequest, username: str):
+    user = get_object_or_404(User, username=username)
     context = {
-        
+        "user": user
     }
     return render(request, template_name='user/profile.html', context=context)
 
