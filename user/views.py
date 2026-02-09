@@ -1,20 +1,24 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, get_object_or_404
 from django.core.handlers.wsgi import WSGIRequest
-from django.shortcuts import get_object_or_404
-from main.forms import ProductForm
 from django.contrib.auth.models import User
-from .forms import AuthenticationForm, LoginForm, RegisterForm
-from django.contrib.auth import authenticate, login, logout
+from .forms import LoginForm, RegisterForm
+from django.contrib.auth import login, logout
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 def register_view(request: WSGIRequest):
     if request.method == 'POST':
         form = RegisterForm(data=request.POST)
 
         if form.is_valid():
-            user = form.save()
+            form.save()
+            messages.success(request, "Ro'yxatdan o'tish muvaffaqiyatli. Endi tizimga kiring.")
             return redirect('index')
+        messages.error(request, "Ro'yxatdan o'tishda xatolik bor. Iltimos, maydonlarni tekshiring.")
+    else:
+        form = RegisterForm()
     context = {
-        "form":RegisterForm()
+        "form": form
     }
     return render(request, template_name='user/register.html', context=context)
 
@@ -24,19 +28,22 @@ def login_view(request: WSGIRequest):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            print('Siz tizimga kirdingiz')
+            messages.success(request, "Siz tizimga kirdingiz.")
             return redirect('index')
-
+        messages.error(request, "Login yoki parol noto'g'ri.")
+    else:
+        form = LoginForm()
     context = {
-        "form": LoginForm()
+        "form": form
     }
     return render(request, template_name='user/login.html', context=context)
 
 def logout_view(request: WSGIRequest):
     logout(request)
-    print('Siz tizimdan chiqdingiz')
+    messages.info(request, "Siz tizimdan chiqdingiz.")
     return redirect('login')
 
+@login_required
 def user_profile(request: WSGIRequest, username: str):
     user = get_object_or_404(User, username=username)
     context = {

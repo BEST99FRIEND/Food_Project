@@ -151,6 +151,13 @@
             <!-- Profile Info -->
             <div class="section profile-info">
                 <h3>Shaxsiy ma'lumotlar</h3>
+                {% if messages %}
+                    {% for message in messages %}
+                        <div style="margin: 10px 0; padding: 8px 10px; border-radius: 4px; background: #fff3cd; color: #856404; border: 1px solid #ffeeba;">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
                 <p><strong>Ism:</strong> {{ user.first_name }} {{ user.last_name }}</p>
                 <p><strong>Email:</strong> {{ user.email }}</p>
                 <p><strong>Username:</strong> {{ user.username }}</p>

@@ -55,6 +55,14 @@
     <div class="form-container">
         <h2>Ro'yxatdan o'tish</h2>
 
+        {% if messages %}
+            {% for message in messages %}
+                <div style="margin: 10px 0; padding: 8px 10px; border-radius: 4px; background: #fff3cd; color: #856404; border: 1px solid #ffeeba;">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
         <form action="#" method="post"> {% csrf_token %}
             {{ form.as_p }}
 
