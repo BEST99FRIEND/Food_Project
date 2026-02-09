@@ -124,75 +124,73 @@
         form button:hover {
             background-color: #e5b800;
         }
+    </style>
+</head>
+<body>
+    <div class="container">
 
-        <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h2>Burger Shop</h2>
 
-    <!-- Sidebar -->
-    <aside class="sidebar">
-        <h2>Burger Shop</h2>
+            <nav class="menu">
+                <a href="#">👤 Profil</a>
+                <a href="#">📦 Buyurtmalar</a>
+                <a href="#">🛒 Savat</a>
+                <a href="#">⚙️ Sozlamalar</a>
+            </nav>
 
-        <nav class="menu">
-            <a href="#">👤 Profil</a>
-            <a href="#">📦 Buyurtmalar</a>
-            <a href="#">🛒 Savat</a>
-            <a href="#">⚙️ Sozlamalar</a>
-        </nav>
+            <div class="logout">
+                <a href="{% url 'logout' %}">🚪 Logout</a>
+            </div>
+        </aside>
 
-        <div class="logout">
-            <a href="{% url 'logout' %}">🚪 Logout</a>
-        </div>
-    </aside>
+        <!-- Content -->
+        <main class="content">
 
-    <!-- Content -->
-    <main class="content">
-
-        <!-- Profile Info -->
-        <div class="section profile-info">
-            <h3>Shaxsiy ma'lumotlar</h3>
-            <p><strong>Ism:</strong> {{ user.first_name }} {{ user.last_name }}</p>
-            <p><strong>Email:</strong> {{ user.email }}</p>
-            <p><strong>Username:</strong> {{ user.username }}</p>
-        </div>
-
-        <!-- Orders -->
-        <div class="section">
-            <h3>Buyurtmalar tarixi</h3>
-            <div class="order">🍔 Cheeseburger – 45 000 so‘m</div>
-            <div class="order">🍟 Fries + Cola – 25 000 so‘m</div>
-        </div>
-
-        <!-- Cart -->
-        <div class="section">
-            <h3>Savat</h3>
-
-            <div class="cart-item">
-                <span>🍔 Big Burger</span>
-                <span>30 000 so‘m</span>
+            <!-- Profile Info -->
+            <div class="section profile-info">
+                <h3>Shaxsiy ma'lumotlar</h3>
+                <p><strong>Ism:</strong> {{ user.first_name }} {{ user.last_name }}</p>
+                <p><strong>Email:</strong> {{ user.email }}</p>
+                <p><strong>Username:</strong> {{ user.username }}</p>
             </div>
 
-            <div class="cart-item">
-                <span>🥤 Cola</span>
-                <span>10 000 so‘m</span>
+            <!-- Orders -->
+            <div class="section">
+                <h3>Buyurtmalar tarixi</h3>
+                <div class="order">🍔 Cheeseburger — 45 000 so‘m</div>
+                <div class="order">🍟 Fries + Cola — 25 000 so‘m</div>
             </div>
-        </div>
 
-        <!-- Edit Profile -->
-        <div class="section">
-            <h3>Ma'lumotlarni o‘zgartirish</h3>
-            <form>
-                <input type="text" placeholder="Ism">
-                <input type="email" placeholder="Email">
-                <input type="text" placeholder="Telefon">
-                <button>Saqlash</button>
-            </form>
-        </div>
+            <!-- Cart -->
+            <div class="section">
+                <h3>Savat</h3>
 
-    </main>
+                <div class="cart-item">
+                    <span>🍔 Big Burger</span>
+                    <span>30 000 so‘m</span>
+                </div>
 
-</div>
+                <div class="cart-item">
+                    <span>🥤 Cola</span>
+                    <span>10 000 so‘m</span>
+                </div>
+            </div>
 
+            <!-- Edit Profile -->
+            <div class="section">
+                <h3>Ma'lumotlarni o‘zgartirish</h3>
+                <form>
+                    <input type="text" placeholder="Ism">
+                    <input type="email" placeholder="Email">
+                    <input type="text" placeholder="Telefon">
+                    <button>Saqlash</button>
+                </form>
+            </div>
 
+        </main>
+
+    </div>
 </body>
 </html>
-
-
