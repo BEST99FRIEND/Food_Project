@@ -9,11 +9,17 @@ def index(request: WSGIRequest):
     sliders = HeroSlider.objects.filter(published=True)
     categories = Category.objects.all()
     products = Product.objects.filter(is_active=True)[:9]
+    discounted_products = (
+        Product.objects
+        .filter(is_active=True, discount__gt=0)
+        .order_by('-discount', '-created_at')[:2]
+    )
     context = {
         'title': 'Home Page',
         'sliders': sliders,
         'categories': categories,
-        'products': products
+        'products': products,
+        'discounted_products': discounted_products,
     }
     return render(request, template_name='index.html', context=context)
 

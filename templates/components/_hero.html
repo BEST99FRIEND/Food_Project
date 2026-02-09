@@ -8,7 +8,7 @@
     <header class="header_section">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="index.html">
+          <a class="navbar-brand" href="{% url 'index' %}">
             <span>
               {{ title }}
             </span>
@@ -24,13 +24,13 @@
                 <a class="nav-link"  href="{% url 'index' %}" >Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="menu.html">Menu</a>
+                <a class="nav-link" href="{% url 'index' %}#menu">Menu</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
+                <a class="nav-link" href="{% url 'index' %}#about">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="book.html">Book Table</a>
+                <a class="nav-link" href="{% url 'index' %}#book">Book Table</a>
               </li>
             </ul>
             <div class="user_option">

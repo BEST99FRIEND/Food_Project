@@ -52,13 +52,3 @@ def user_profile(request: WSGIRequest, username: str):
     return render(request, template_name='user/profile.html', context=context)
 
 
-
-
-# if request.POST.get('password1') == request.POST.get('password2'):
-#     user = User.objects.create_user(
-#         username=request.POST.get('username'),
-#         email=request.POST.get('email'),
-#         password=request.POST.get('password1')
-#     )
-#     print('Siz royhatdan otdingiz')
-#     return redirect('index') 
