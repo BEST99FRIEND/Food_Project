@@ -36,21 +36,20 @@
 </style>
 {% endblock style %}
 
-
 {% block main %}
 <div class="container">
   <div class="form-wrap">
     <div class="form-head">
-      <h3 class="mb-1">Mahsulot ma'lumotlari</h3>
-      <p class="mb-0">Formani to'ldiring va saqlang</p>
+      <h3 class="mb-1">Mahsulotni tahrirlash</h3>
+      <p class="mb-0">Ma'lumotlarni yangilang va saqlang</p>
     </div>
     <div class="form-body">
       <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
         <div class="action-row">
-          <button type="submit" class="btn btn-primary">Saqlash</button>
-          <a href="{% url 'index' %}" class="btn btn-outline-secondary">Bekor qilish</a>
+          <button type="submit" class="btn btn-primary">Yangilash</button>
+          <a href="{% url 'product_detail' product.pk %}" class="btn btn-outline-secondary">Bekor qilish</a>
         </div>
       </form>
     </div>

@@ -41,7 +41,7 @@ def add_product(request: WSGIRequest):
         'form': form
     }
 
-    return render(request, template_name='main/add_product.html', context=context)
+    return render(request, template_name='main/update_product.html', context=context)
 
 def product_detail(request: WSGIRequest, pk: int):
     product = get_object_or_404(Product, pk=pk)
